@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cash-Flow | Salary & Expense Tracker</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <main class="dashboard">
+        <section class="hero">
+            <p class="eyebrow">Mission 2</p>
+            <h1>Cash-Flow Tracker</h1>
+            <p class="subtitle">Track your salary, record expenses, and keep your remaining balance updated in real time.</p>
+        </section>
+
+        <section class="panel form-panel">
+            <div class="form-grid">
+                <form id="salaryForm" class="card">
+                    <h2>Set Salary</h2>
+                    <label for="salary">Total Salary</label>
+                    <input type="number" id="salary" min="0" step="0.01" placeholder="Enter your salary">
+                    <button type="submit">Save Salary</button>
+                </form>
+
+                <form id="expenseForm" class="card">
+                    <h2>Add Expense</h2>
+                    <label for="expenseName">Expense Name</label>
+                    <input type="text" id="expenseName" placeholder="e.g. Rent">
+
+                    <label for="expenseAmount">Expense Amount</label>
+                    <input type="number" id="expenseAmount" min="0" step="0.01" placeholder="Enter amount">
+
+                    <button type="submit">Add Expense</button>
+                </form>
+            </div>
+
+            <p id="statusMessage" class="status-message" aria-live="polite"></p>
+        </section>
+
+        <section class="summary-grid">
+            <article class="summary-card">
+                <span>Total Salary</span>
+                <strong id="totalSalary">Rs 0.00</strong>
+            </article>
+            <article class="summary-card">
+                <span>Total Expenses</span>
+                <strong id="totalExpenses">Rs 0.00</strong>
+            </article>
+            <article class="summary-card balance-card">
+                <span>Remaining Balance</span>
+                <strong id="balance">Rs 0.00</strong>
+            </article>
+        </section>
+
+        <section class="content-grid">
+            <article class="panel">
+                <div class="section-heading">
+                    <h2>Expense List</h2>
+                    <p>Your saved expenses stay here even after refresh.</p>
+                </div>
+                <ul id="expenseList" class="expense-list"></ul>
+                <p id="emptyState" class="empty-state">No expenses added yet.</p>
+            </article>
+
+            <article class="panel chart-panel">
+                <div class="section-heading">
+                    <h2>Overview</h2>
+                    <p>Pie chart of total expenses vs remaining balance.</p>
+                </div>
+                <div class="chart-wrap">
+                    <canvas id="chart"></canvas>
+                </div>
+            </article>
+        </section>
+    </main>
+
+    <script src="scripts.js"></script>
+</body>
+</html>
